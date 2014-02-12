@@ -281,7 +281,7 @@ nav{
 {
 	background-color:#E6E6E6 ;
 	border-radius: 0px 0px 5px 5px;
-	padding: 20px 10px 50px 20px;
+	padding:20px 10px 20px 7px;
 	min-height: 450px;
 	width: 920px;
 	margin: auto;
@@ -296,14 +296,12 @@ nav{
 }
 .consigne
 {
+
 	float: left;
-	clear: both;
 }
 .classementAccueil
 {
-	float: right;
-	clear: lelf;
-	
+	margin-left: 470px;
 }
 
 .consigne h3, .classementAccueil h3
@@ -316,7 +314,6 @@ nav{
 	padding: 10px 10px 5px 10px;
 	margin: 0;
 	 
-	
 	background-color: rgba(60,148,255,1);
 	color: #eaeaea; 
 		

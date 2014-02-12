@@ -58,6 +58,6 @@
 	
 	<article >
 		<p>
-		        <a id="submitButton" href="#" class="button-jouer">Jouer</a>
+		        <a id="submitButton" href="#" class="button-jouer">Lancez le Jeu</a>
 		</p>
 	</article>
