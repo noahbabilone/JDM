@@ -1,0 +1,385 @@
+/*
+@font-face {
+    font-family: "Lobster";
+    src: url('LobsterTwo-BoldItalic.ttf');
+}
+*/
+
+* { 
+	margin: 0; 
+	padding: 0; 
+	outline: none; 
+}
+
+html,body {
+	/* height: 90%; */
+	background-color:#F2F2F2;
+	font-family: "Calibri", Arial, sans-serif; 
+}
+
+
+a { 
+	text-decoration: none; 	
+}
+
+a:hover 
+{
+	 text-decoration: underline; 
+}
+
+a:visited
+{ 
+	color:#3755ff;
+}
+
+img 
+{ 
+	border: 0; 
+}
+
+/****************** En tête **************************/
+
+header h1
+{
+    width:400px;
+    color:#0078ff;
+    margin: 30px auto 10px 40px;
+    font:2.9em fantasy, serif;
+    font-weight:bold	;
+
+
+}
+
+#bloc_session 
+{
+	position: absolute;
+	top:10px;
+	right: 30px;
+	height:70px;
+	width: 200px; 
+	padding: 5px;
+	background-color: #0078ff;
+	color: white;
+	border-radius: 4px;	
+	color:#fff;
+}
+
+#bloc_session img
+{
+	float: left;
+	clear: right;
+	padding: 10px;
+}
+
+#bloc_session ul
+{
+/* 	 margin:0; /*On supprime les marges , padding et puces    */ 
+	 padding-top:15px;
+ 	 list-style-type:none; 	
+}
+
+#bloc_session a:visited
+{ 
+	color:#fff;
+}
+
+
+/************** Connexion  ***************************/
+#bloc_connexion
+{
+ 	display: none; 
+ 	margin: auto:
+}
+
+#bloc_connecion h2 
+{ 
+	font-size: 1.8em; 
+	line-height: 1.9em; 
+	margin-bottom: 15px;  
+}
+
+
+label { 
+	margin-right: 12px; 
+	margin-bottom: 9px; 
+	font-family: Georgia, serif; 
+	color: #646464; 
+	font-size: 1.2em; 
+}
+
+input.error, textarea.error 
+{ 
+	border-color: #973d3d; 
+	border-style: solid; 
+	background: #f0bebe; 
+	color: #a35959; 
+	
+}
+
+input.error:focus, textarea.error:focus 
+{ 
+	border-color: #973d3d; 
+	color: #a35959; 
+}
+
+
+/* ************************* Menu ************************************ */
+nav{
+	margin: 0 auto 0;
+	text-align: center;
+/* 	background-color:#0078ff;	  */
+/* 	width: 750px; */
+}
+
+#menu {
+    /* Affects the UL element */
+    overflow: hidden;
+    display: inline-block;
+       
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
+    -moz-box-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
+    -webkit-box-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
+}
+
+#menu li{
+    /* dégradés CSS3 */
+
+    background-color: #f0f0f0;
+    background-image: -webkit-gradient(linear,left top, left bottom,from(#fefefe), color-stop(0.5,#f0f0f0), color-stop(0.51, #e6e6e6));
+    background-image: -moz-linear-gradient(#fefefe 0%, #f0f0f0 50%, #e6e6e6 51%);
+    background-image: -o-linear-gradient(#fefefe 0%, #f0f0f0 50%, #e6e6e6 51%);
+    background-image: -ms-linear-gradient(#fefefe 0%, #f0f0f0 50%, #e6e6e6 51%);
+    background-image: linear-gradient(#fefefe 0%, #f0f0f0 50%, #e6e6e6 51%);
+
+    border-right: 1px solid rgba(9, 9, 9, 0.125);
+
+    /* Adding a 1px inset highlight for a more polished efect: */
+
+    box-shadow: 1px -1px 0 rgba(255, 255, 255, 0.6) inset;
+    -moz-box-shadow: 1px -1px 0 rgba(255, 255, 255, 0.6) inset;
+    -webkit-box-shadow: 1px -1px 0 rgba(255, 255, 255, 0.6) inset;
+
+    position:relative;
+
+    float: left;
+    list-style: none;
+}
+
+#menu li:after{
+
+    /*  */	
+
+    content:'.';
+    text-indent:-9999px;
+    overflow:hidden;
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:1;
+    opacity:0;
+
+    /* Gradients! */
+
+    background-image:-webkit-gradient(linear, left top, right top, from(rgba(168,168,168,0.5)),color-stop(0.5,rgba(168,168,168,0)), to(rgba(168,168,168,0.5)));
+    background-image:-moz-linear-gradient(left, rgba(168,168,168,0.5), rgba(168,168,168,0) 50%, rgba(168,168,168,0.5));
+    background-image:-o-linear-gradient(left, rgba(168,168,168,0.5), rgba(168,168,168,0) 50%, rgba(168,168,168,0.5));
+    background-image:-ms-linear-gradient(left, rgba(168,168,168,0.5), rgba(168,168,168,0) 50%, rgba(168,168,168,0.5));
+    background-image:linear-gradient(left, rgba(168,168,168,0.5), rgba(168,168,168,0) 50%, rgba(168,168,168,0.5));
+
+    /* Creating borders with box-shadow. Useful, as they don't affect the size of the element. */
+
+    box-shadow:-1px 0 0 #a3a3a3,-2px 0 0 #fff,1px 0 0 #a3a3a3,2px 0 0 #fff;
+    -moz-box-shadow:-1px 0 0 #a3a3a3,-2px 0 0 #fff,1px 0 0 #a3a3a3,2px 0 0 #fff;
+    -webkit-box-shadow:-1px 0 0 #a3a3a3,-2px 0 0 #fff,1px 0 0 #a3a3a3,2px 0 0 #fff;
+
+    /* This will create a smooth transition for the opacity property */
+
+    -moz-transition:0.25s all;
+    -webkit-transition:0.25s all;
+    -o-transition:0.25s all;
+    transition:0.25s all;
+}
+
+/* Treating the first LI and li:after elements separately */
+
+#menu li:first-child{
+    border-radius: 4px 0 0 4px;
+}
+
+#menu li:first-child:after,
+#menu li.selected:first-child:after{
+    box-shadow:1px 0 0 #a3a3a3,2px 0 0 #fff;
+    -moz-box-shadow:1px 0 0 #a3a3a3,2px 0 0 #fff;
+    -webkit-box-shadow:1px 0 0 #a3a3a3,2px 0 0 #fff;
+
+    border-radius:4px 0 0 4px;
+}
+
+#menu li:last-child{
+    border-radius: 0 4px 4px 0;
+}
+
+/* Treating the last LI and li:after elements separately */
+
+#menu li:last-child:after,
+#menu li.selected:last-child:after{
+    box-shadow:-1px 0 0 #a3a3a3,-2px 0 0 #fff;
+    -moz-box-shadow:-1px 0 0 #a3a3a3,-2px 0 0 #fff;
+    -webkit-box-shadow:-1px 0 0 #a3a3a3,-2px 0 0 #fff;
+
+    border-radius:0 4px 4px 0;
+}
+
+#menu li:hover:after,
+#menu li.selected:after,
+#menu li:target:after{
+    opacity:1;
+}
+
+#menu:hover li.selected:after,
+#menu:hover li:target:after{
+    /* Hides the targeted li when we are hovering on the UL */
+    opacity:0;
+}
+
+#menu li.selected:hover:after,
+#menu li:target:hover:after{
+    opacity:1 !important;
+}
+
+#menu li a{
+    color: #5d5d5d;
+    display: inline-block;
+    font: 20px/1 Lobster,fantasy,Arial,sans-serif;
+/*     font-weight: bold; */
+    padding: 12px 35px 14px;
+/*     position: relative; */
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
+    z-index:2;
+    text-decoration:none !important;
+    white-space:nowrap;
+}
+
+#menu a.homeIcon{
+    background:url('../Images/home.png') no-repeat center center;
+    display: block;
+    overflow: hidden;
+    padding-left: 12px;
+    padding-right: 12px;
+    text-indent: -9999px;
+    width: 16px;
+}
+
+/******************** Corps ************************/
+#contenu
+{
+	background-color:#E6E6E6 ;
+	border-radius: 0px 0px 5px 5px;
+	padding: 20px 10px 50px 20px;
+	min-height: 450px;
+	width: 920px;
+	margin: auto;
+	color: #545454; 
+}
+
+.consigne, .classementAccueil
+{   
+	width: 450px;
+	margin: 10px;
+    	
+}
+.consigne
+{
+	float: left;
+	clear: both;
+}
+.classementAccueil
+{
+	float: right;
+	clear: lelf;
+	
+}
+
+.consigne h3, .classementAccueil h3
+{   
+/*
+	background-color: rgba(187,187,187,0.76);
+	color: #636363;
+*/
+	border-radius: 5px 5px 0px 0px;
+	padding: 10px 10px 5px 10px;
+	margin: 0;
+	 
+	
+	background-color: rgba(60,148,255,1);
+	color: #eaeaea; 
+		
+}
+
+.consigne p, .classementAccueil table
+{
+	background-color: rgba(252,252,252,1);
+	padding: 10px;
+
+}
+
+
+.button-jouer{
+	display: inline-block;
+	font-size:24px;
+	color:#fff !important;
+	text-decoration: none !important;
+	padding:14px 60px;
+	line-height:1;
+	overflow: hidden;
+	position:relative;
+	text-align: center;
+
+	box-shadow:0 1px 1px #ccc;
+	border-radius:2px;
+
+	background-color: #51b7e6;
+	background-image:-webkit-linear-gradient(top, #51b7e6, #4dafdd);
+	background-image:-moz-linear-gradient(top, #51b7e6, #4dafdd);
+	background-image:linear-gradient(top, #51b7e6, #4dafdd);
+}
+
+/*	Hide the original text of the button. Then the loading or finished
+	text will be shown in the :after element above it. */
+
+.button-jouer.in-progress,
+.button-jouer.finished{
+	color:transparent !important;
+}
+
+.button-jouer.in-progress:after,
+.button-jouer.finished:after{
+	position: absolute;
+	z-index: 2;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	top: 0;
+	padding-top: inherit;
+	color: #fff !important;
+	left: 0;
+}
+
+/******************** Footer ************************/
+
+footer 
+{
+	color:grey;
+	text-align: center;
+	padding-top: 10px;
+}
+
+
+
+
