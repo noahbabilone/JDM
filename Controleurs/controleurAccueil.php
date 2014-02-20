@@ -17,15 +17,7 @@ class ControleurAccueil {
     $vue = new Vue("Accueil");
     $vue->generer(array('blocs' => $blocs));
   }
-  
-/*
-  public function accueil() {
-	   $bloc= $this->bloc->getPermierBloc();
-	   $vue = new Vue("Accueil");
-       $vue->generer(array('bloc' => $bloc));;
-  }
-*/
-  
+
   public function getIdblocPrecedent($idbloc)
   {
  	  return $this->bloc->blocPrecedent($idbloc);   

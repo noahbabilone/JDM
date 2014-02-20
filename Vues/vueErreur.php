@@ -1,7 +1,11 @@
-<?php $titre = 'Mon Blog'; ?>
-
-<?php ob_start() ?>
-<p>Une erreur est survenue : <?= $msgErreur ?></p>
-<?php $contenu = ob_get_clean(); ?>
-
-<?php require 'gabarit.php'; ?>
+<?php $this->titre = "Page introuvable"; ?>
+<article>
+	<p> Oups, cette page n'est malheuresement pas disonible !! <br>
+	<?php
+		if (isset($msgErreur))
+		{
+			echo $msgErreur; 
+		}
+	?>
+	</p>
+</article>

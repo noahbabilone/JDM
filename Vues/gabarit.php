@@ -28,45 +28,18 @@
 					<p>
 						<img src="Images/avatar_defaut.png" title="" alt="" name="" width=50  height=50 />
 						<ul>
-					<!-- 	<li> <a href="#bloc_connexion" class="popup_connexion">Connexion</a></li> -->
-							<li> <a href="Pages/connexion.php" class="popup_connexion">Connexion</a></li>
-							<li> <a href="#">Inscription</a></li>
+<!-- 							<li> <a href="index.php?module=membres&amp;action=connexion" class="popup_connexion">Connexion</a></li> -->
+							<li> <a href="index.php?module=utilisateur&amp;action=connexion" >Connexion</a></li>
+							<li> <a href="index.php?module=utilisateur&amp;action=inscription">Inscription</a></li>    
 						</ul>
 					</p>
 			    </div> 
-			        
-			    <div id="bloc_connexion">
-			    	<h2> Connexion </h2>
-					<form method="post" id="contact">
-						<table>
-							<tr> 
-								<td><label for="login"> Login :</label></td>
-								<td>                   
-									<input type="text" id="login" name="login"  class="login-inp" />
-								</td>
-							</tr>
-							<tr>
-							<td><label for="passe">Mot de passe :</label></td>
-								<td>                   
-									<input type="password" id="passe" name="passe"  class="login-inp" />
-								</td>
-							</tr>
-					       <tr>
-				                <td></td>
-				                <td>
-				                <button type="submit"  name="valider" id="valider" class="" ><span>Connexion</span></button> <!-- - -->                 
-			<!-- 	                <button type="reset" name="valider" id="annule" class=""  ><span>Annuler</span></button> -->
-				                </td>
-				            </tr>
-						</table>
-					</form>
-				</div>
 			</header>
 			
 			<!-- Menu --->
 			<nav>
 				<ul id="menu">
-			    	<li id="accueil"><a href="#accueil" class="homeIcon">Accueil</a></li>
+			    	<li id="accueil"><a href="index.php" class="homeIcon">Accueil</a></li>
 			    	<li id="classement"><a href="#Classement">Classement</a></li>
 			    	<li id="event"><a href="#Event">Evènement</a></li>
 			    	<li id="forum"><a href="#Forum" >Forum</a></li>
