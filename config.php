@@ -3,7 +3,7 @@
 
 /* Variable globales essentielles */
 define('ROOT', dirname(__FILE__)); // Chemin de la racine jusqu'au site (à utiliser pour les includes et requires)
-define('ABSOLUTE_ROOT', 'http://localhost:8888/1-Projet/'); // Lien absolu de la racine du site (à utiliser pour les vues)
+define('ABSOLUTE_ROOT', ''); // Lien absolu de la racine du site (à utiliser pour les vues)
 define('NOM_SITE', 'Projet L3');
 	
 /* Variables de connexion à la base de données */

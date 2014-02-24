@@ -1,6 +1,6 @@
 <?php $this->titre = "Page introuvable"; ?>
 <article>
-	<p> Oups, cette page n'est malheuresement pas disonible !! <br>
+	<p>
 	<?php
 		if (isset($msgErreur))
 		{

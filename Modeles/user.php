@@ -159,7 +159,7 @@ class User extends Modele {
 } // fin de la classe Usre
 		
 		
-	/*
+/*
 	echo 'Test <br>';
 		$user = new User();
 		
@@ -175,14 +175,34 @@ class User extends Modele {
 		
 		echo "getId Apres Init " .$user->getId()." - " .$user->getLogin()." - " .$user->getPasse()." - " .$user->getEmail()." - " .$user->getScore()." - " .$user->getTypeUser()." - " .$user->getDateCreation()." - " .$user->getDateModif();
 		
-	
+		try {
+			$_SESSION['user']= $user;
+		}catch(Exception $e){
+			echo 'Erreur : '.$e->getMessage().'<br />';
+				echo 'N° : '.$e->getCode();
+				exit();
+		}
 		
+		
+		
+		if(isset($_SESSION['user']))
+		{
+			
+			$u=$_SESSION['user'];
+			echo 'test';		
+				
+				echo "$$$$$$$ getId Apres Init " .$user->getId()." - " .$user->getLogin()." - " .$user->getPasse()." - " .$user->getEmail()." - " .$user->getScore()." - " .$user->getTypeUser()." - " .$user->getDateCreation()." - " .$user->getDateModif();
+			
+			
+		}
+		
+
+
 */
-		
-		
-		
-		
-		
-		
+
+
+
+
+
 
 		

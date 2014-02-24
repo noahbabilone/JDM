@@ -1,3 +1,6 @@
+<?php
+	//session_start();
+?>
 
 <!doctype html>
 <html lang="fr">
@@ -11,9 +14,7 @@
         <script type="text/javascript" src="Js/jquery.js"></script>
         <script type="text/javascript" src="Js/docReady.js"></script>
         
-        <!-- Fonction PHP -->
-        <?php /* include ('Modeles/fonctions.php');  */?> 
-      
+        <!-- Fonction PHP -->      
         <title><?= $titre ?></title>
         
     </head>
@@ -25,17 +26,27 @@
 					<h1>The Words World</h1>
 			    </div>
 			    <div id="bloc_session">
-					<p>
-						<img src="Images/avatar_defaut.png" title="" alt="" name="" width=50  height=50 />
+			    	<p>
+			    	<img src="Images/avatar_defaut.png" title="" alt="" name="" width=50  height=50 />
 						<ul>
-<!-- 							<li> <a href="index.php?module=membres&amp;action=connexion" class="popup_connexion">Connexion</a></li> -->
-							<li> <a href="index.php?module=utilisateur&amp;action=connexion" >Connexion</a></li>
-							<li> <a href="index.php?module=utilisateur&amp;action=inscription">Inscription</a></li>    
+				    	<?php 
+			    		if (isset($_SESSION['user']))
+					 	{
+					 		$user = $_SESSION['user'];					 	
+						 	echo '<li>Hi ! ' .$user->getLogin().'</li>';
+						 	echo '<li><a href="#">Options</a> </li> ';
+/* 						 	echo '<li><a href="#">D&eacute;connexion</a> </li> '; */
+					 	}else {
+				    	?>				
+							<li> <a href="index.php?controleur=session&amp;action=connexion" >Connexion</a></li>
+							<li> <a href="index.php?controleur=session&amp;action=inscription">Inscription</a></li>    
 						</ul>
 					</p>
+					<?php 
+						}// fin else de Session 
+					?>
 			    </div> 
-			</header>
-			
+			</header>			
 			<!-- Menu --->
 			<nav>
 				<ul id="menu">
@@ -45,23 +56,20 @@
 			    	<li id="forum"><a href="#Forum" >Forum</a></li>
 			        <li id="option"><a href="#">Options +</a>
 			           <!--
- <ul class="sousMenu">
+			           	<ul class="sousMenu">
 			            	<li><a href="#" class="">SOUK</a></li>
 			            	<li><a href="#" class="">BAM</a></li>
 			            	<li><a href="#" class="">Portail</a></li>
 			            	<li><a href="#" class="">Dico</a></li>
 			            </ul>
--->
+			            -->
 			        </li>
 			        <li id="aides"><a href="#Aides" >Aides</a></li>
-
 				</ul>
 			</nav>
 				<!--*************  Contient tous les contenues de chaque page *****************************-->
-            <div id="contenu"> 
-            
+            <div id="contenu">             
                 <?= $contenu ?>
-            
             </div> <!-- #contenu -->
 			<!-- Pied de la page -->
 			<footer>
@@ -76,3 +84,5 @@
         </div> <!-- #global -->
     </body>
 </html>
+
+<?php
