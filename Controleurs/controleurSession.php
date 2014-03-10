@@ -44,8 +44,10 @@ class ControleurSession {
     }else
     {
 	  	 $this->user->initDonneeUser($result);
-/* 	  	 $_SESSION['user']= serialize($this->user); // serialisation marche pas encore */
-		  	 $_SESSION['user']= $this->user; // serialisation marche pas encore
+		  	 //$_SESSION['user']=serialize($this->user); // serialisation marche pas encore
+		  	 $_SESSION['id']=$this->user->getId();
+		  	 $_SESSION['login']=$this->user->getLogin();
+		  	 
     }
     $vue = new Vue("Connexion");
     $vue->generer(array('result' => $result));
@@ -54,13 +56,23 @@ class ControleurSession {
   //Permet d'appeler le formulaire d'inscription
   public function inscription()
   {
+  	$result="";
+  	// vérification champs est faite dans le javascript
+    if (isset($_POST['pseudo']) && isset($_POST['passe1']) && isset($_POST['email']) && isset($_POST['passe1']))
+  	{
+  		
+  		$login=mysql_real_escape_string($_POST['pseudo']);
+  		$email=mysql_real_escape_string($_POST['email']);
+  		$passe=mysql_real_escape_string($_POST['passe1']);
+   		$result=$this->user->ajoutUser($login,$email,$passe);
+  		//var_dump($result);
+	  	
+  	}
+  	
 	$vue = new Vue("inscription");
-    $vue->generer(array());
+    $vue->generer(array('result' => $result));
 
 	  
   }
-  
-
-
   
 }

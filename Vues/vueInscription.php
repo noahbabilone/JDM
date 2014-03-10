@@ -1,31 +1,67 @@
 <?php $this->titre = "Inscription"; ?>
-<section>
-	<form method="post" class="form-connexion" action="index.php?module=utilisateur&action=inscription">
-		<h2> S'inscrire </h2>
-		<table>
-			<tr>
-				<td><label for="pseudo">Pseudo</label></td>
-				<td><input type="text" id="pseudo" class="champ" name="pseudo"></td>
-			</tr>
+<div id="bloc_inscription">
+	<section id="inscription">
+		<form method="post" id="form-inscription" action="index.php?controleur=session&action=inscription">
+			<h2> S'inscrire </h2>
+			<?php
+			if (isset($result) && !empty($result))
+			{
+				echo '<p class="inscription-reussi"> Votre compte a été créé avec succès, vous allez recevoir par mail le lien pour valider votre inscription; </p>';
+	/* 				 header('Refresh: 3; index.php'); */
+			}		
+			?>
+			
+			<div id="erreur" class="alert-error">
+		  	  <p> <center>Veuillez confirmer votre mot de passe!</center></p>
+		    </div>
+		    
+		   
+		    <div>
+		    
+		    	<table>
+		    	
+			    	<tr>
+			    		<td>
+			    			<label for="pseudo">Nom utilisateur</label>
+			    		</td>
+			    		<td>
+			    			<label for="email">Adresse email</label>
+			    		</td>			
+			    	</tr>	
+			    	<tr>
+						<td> 
+							<input type="text" id="pseudo" class="champs-inscription" name="pseudo" placeholder="Pseudo" required /> <span class="verifLogin"></span> 
+						</td>
+						<td>
+						<input type="email" id="email" class="champs-inscription" name="email" placeholder="Email" required />
+						</td>
+			    	</tr>
+			    	<tr>
+			    		<td>
+			    		<label for="passe1">Mot de passe</label>
+			    		</td>
+			    	</tr>
+					<tr>
+						<td><input type="password" id="passe1" class="champs-inscription" name="passe1" required/> 
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="passe">Confirmation du mot de passe</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="password" id="passe2" class="champs-inscription" name="passe2" required />
+						</td>
+					</tr>
+		    	</table>
+			</div>
+			<div>
+				<input type="submit" id="btn-inscription" value="S'inscire" />
 		
-			<tr>
-				<td><label for="email"> </label>Email</td>
-				<td><input type="email" id="" class="champ" name="email"></td>
-			</tr>
-			<tr>
-				<td><label for="passe1">Mot de passe</label></td>
-				<td><input type="password" id="passe1" class="champ" name="passe1"></td>
-			</tr>
-			<tr>
-				<td><label for="passe"></label>Confirmer mot de passe</td>
-				<td><input type="text" id="passe2" class="champ" name="passe"></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><input type="submit" id="validation-inscritption" name="validation-inscritption" value="S'inscire" </td>
-			</tr>
-		</table>
+		    </div>
+		</form>
 	
-	</form>
-
-</section>
+	</section>
+</div>

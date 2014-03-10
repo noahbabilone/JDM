@@ -74,6 +74,6 @@
 	
 	<section id="button_jouer">
 		<p>
-		        <a id="submitButton" href="#" class="button-jouer">Lancez le Jeu</a>
+		        <a id="submitButton" href="index.php?controleur=partie&amp;action=jouer"" class="button-jouer">Lancez le Jeu</a>
 		</p>
 	</section>

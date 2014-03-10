@@ -1,13 +1,20 @@
 <?php $this->titre = "Connexion  "; ?>
 <div id="bloc_connexion">
-
 		<?php
+/*
 	 	if (isset($_SESSION['user']) && !empty($_SESSION['user']))
 	 	{
 		 	echo '<p class="succes_connexion"> Connexion réussi </p>';
-			//header('Location:index.php');	 		
+		 	$user= unserialize($_SESSION['user']);
+		 	echo "$$$$$$$ getId Apres Init " .$user->getId()." - " .$user->getLogin().
+		 		 " - " .$user->getPasse()." - " .$user->getEmail()." - " .$user->getScore()." - " .$user->getTypeUser()." - " .$user->getDateCreation()." - " .$user->getDateModif();			//				header('Location:index.php');	 		
 		 	
 	 	}
+*/
+		 if (isset($_SESSION['id']) && isset($_SESSION['login']))// connecté
+		 {
+			 header('Location:index.php');
+		 }
 	 	else {
 	 		?>
  			<section id="session">
@@ -17,21 +24,22 @@
 					if(isset($result) && !empty($result)){
 						if ($result=="Echec")
 						{
+							echo '<div  class="alert-error">';
 							echo '<p class="erreur_connexion"> Pseudo ou mot de passe incorrect !</p>';
+							echo '</div>';
 						}
 					}
 					?>
 					<div>
-						<input type="text" id="login" name="login" class="champ-connexion" placeholder="Pseudo" autofocus required/>
+						<input type="text" id="login" name="login" class="champs-connexion" placeholder="Pseudo" autofocus required/>
 					</div>
 					<div>
-						<input type="password" id="passe" name="passe"  class="champ-connexion" placeholder="Mot de passe" required />
+						<input type="password" id="passe" name="passe"  class="champs-connexion" placeholder="Mot de passe" required />
 					</div>
 					<div>
 						<input type="submit"  name="valide-connexion" id="btn-connexion"  value="Connexion">            
 	
 						<a href="">Mot de passe oublié ?</a>
-<!-- 						<a href="index.php?module=utilisateur&action=inscription">S'inscrire</a> -->
 					</div>
 					
 					<div class="clear"> </div>	

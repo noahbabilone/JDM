@@ -118,6 +118,20 @@ class User extends Modele {
 	public function getDateModif(){
 		return $this->dateModif ;
 	}
+	
+	/*
+public function __sleep()
+    {
+        return array("id","login","passe","email","score","typeUser","dateCreation","dateModif");
+    }
+   
+    public function __wakeup()
+    {
+         echo '';
+    }
+	
+*/
+	
 		
 /*************** Méthodes **********************/
 //spprimer
@@ -131,14 +145,13 @@ class User extends Modele {
 
    // Retourne un objet User
     public function getUser ($login, $passe){
-	   	$sql ="	SELECT user_id as id, user_login as login, user_passe as passe,user_passe as passe, user_score as score, user_type as type, user_dateCreat as dateCreat, user_dateModif as dateModif
+	   	$sql ="	SELECT user_id as id, user_login as login, user_passe as passe,user_passe as passe, user_email as email, user_score as score, user_type as type, user_dateCreat as dateCreat, user_dateModif as dateModif
 				FROM  user 
 				WHERE user_login = ? AND user_passe =? ";
 			
 			$user = $this->executerRequete($sql, array($login,$passe));
 		if ($user->rowCount() == 1)
 			return  $user->fetch();  // Accès à la première ligne de résultat
-		//	return $user->fetch();  // Accès à la première ligne de résultat
 		else
 			return "";
 
@@ -147,7 +160,6 @@ class User extends Modele {
 
     /***Permet de récuper***/ 
 	    public function getListeUsers (){
-	  ///  $nb=10;
 
 	   	$sql ="	SELECT user_id as id, user_login as login, user_passe as passe,user_passe as passe, user_score as score, user_type as typeUser, user_dateCreat as dateCreation, user_dateModif as dateModif
 				FROM  user Limit 1' 
@@ -156,7 +168,43 @@ class User extends Modele {
 			$user = $this->executerRequete($sql);
 			return $user; 
     }
+    
+  
+    
+   	   /***Permet de récuper***/ 
+	    public function ajoutUser ($pseudo,$email,$passe){
+	  ///  $nb=10;
+	  		$passe=MD5($passe);
+	   		$sql ="INSERT INTO user SET user_login=?, user_email= ?,user_passe = ?,user_dateCreat=NOW(),user_dateModif=NOW()";
+			
+	   		//echo "INSERT INTO user SET user_login='".$pseudo."', user_email='".$email."',user_passe ='".$passe."',user_dateCreat=NOW(),user_dateModif=NOW()";
+
+			$user = $this->executerRequete($sql, array($pseudo,$email,$passe));
+			return $user; 
+		
+		}
+		
+		
+		public function userExiste ($pseudo)
+		{
+			$sql="SELECT user_login FROM user WHERE user_login=?";
+			$user = $this->executerRequete($sql, array($pseudo));
+			
+			if ($user->rowCount() == 1)
+				return  true;  // Accès à la première ligne de résultat
+			else
+				return false;
+			
+				
+			
+		}
 } // fin de la classe Usre
+		
+		
+		
+		
+		
+		
 		
 		
 /*
@@ -182,8 +230,6 @@ class User extends Modele {
 				echo 'N° : '.$e->getCode();
 				exit();
 		}
-		
-		
 		
 		if(isset($_SESSION['user']))
 		{

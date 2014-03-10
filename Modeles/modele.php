@@ -1,10 +1,9 @@
 <?php
-//require 'config.php';
-
 abstract class Modele {
 
 	// Objet PDO d'accès à la BD
 	private $bdd;
+	
 	
 	// Exécute une requête SQL éventuellement paramétrée
 	protected function executerRequete($sql, $params = null) {
@@ -36,9 +35,4 @@ abstract class Modele {
 		}
 		return $this->bdd;
 	}
-
-
-
 }
-
-
