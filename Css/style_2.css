@@ -135,18 +135,28 @@ border-bottom: 1px solid #5C5C5C;
 
 #countDown
 {
-	border: 1px solid #8e8e8e;
+/* 	border: 1px solid #8e8e8e; */
 	float: right;
+	padding: 4px;
 	
 }
 .countDown
 {
-	color:red;
-	font: 1.3em;
+	color:#0078FF;
+	font-size: 1.9em;
 
 }
 
+table { 
+  border-collapse: collapse; 
+}
 
+.table-proposition td
+{
+	text-align: left;
+	padding: 6px; 
+/*     border: 1px solid #ccc;  */
+}
 
 
 

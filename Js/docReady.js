@@ -100,8 +100,9 @@ $(document).ready(function()
 		var timer = setInterval(function() { 
 		   $('.countDown').text(--sec);
 		   if (sec == 0) {
-		      $('#countDown').fadeOut('fast');
+/* 		      $('#countDown').fadeOut('fast'); */
 		      // redirection ajax ici qui compte le point
+		      alert('fini :) !!');
 		      clearInterval(timer);
 		   } 
 		}, 1000);

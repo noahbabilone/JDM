@@ -29,11 +29,12 @@ $(function () {
 		<h1>Test</h1>
 		<hR />
 	<div class="jeu">
-		
+				
+		<div id="countDown"> Temps: <span class="countDown">60</span> Secondes</div>
+
 		<div class="consigne-jeu">
 			<p>Donner des ASSOCIATIONS D'IDEES avec le terme qui suit :</p>
 		</div>
-		<div id="countDown"> Temps: <span class="countDown">90</span> Secondes</div>
 		
 			<h2>SOUMETTRE</h2>
 					
@@ -44,7 +45,7 @@ $(function () {
 		    </form>
 		</div>
 		
-		<div class="">
+		<div class="resultat-saisi">
 			<input type="hidden" class="nb-ligne-tab" value="0">
 			<table class="table-proposition">
 			</table>
