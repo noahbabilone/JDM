@@ -1,0 +1,151 @@
+<?php
+
+require_once 'Modeles/mots.php';
+require_once 'Vues/vue.php';
+
+class ControleurAdmin {
+	private $mot;
+
+
+	public function __construct(){
+	    $this->mot = new Mots();
+
+	}
+
+	public function ajout()
+	{
+	 $vue = new Vue("Ajout");
+	 $vue->generer(array());
+	}
+	
+
+	public function mots()
+	{
+		if(!isset($_POST['txt'])){
+			$vue = new Vue("Ajout");
+			$vue->generer(array());
+		}else
+		{
+			$text=strtolower($_POST['txt']);
+			$text=str_replace(",","\n",$text);
+			
+			$arr=explode("\n",$text);
+			$arr1[]=array();
+			for($i=0;$i<count($arr);$i++){
+			$this->mot->ajouterMot(trim($arr[$i]));
+			
+			$arr1[$i]['mot']=trim($arr[$i]);
+			$arr1[$i]['id']=$this->mot->lastId(); 
+		}
+
+		$vue = new Vue("Resultat");
+		$vue->generer(array("result"=>$arr1));
+		
+		}
+
+	}
+
+	public function gerer()
+	{
+		if(isset($_POST['recherche'])&&!empty($_POST['recherche'])){
+			$result=$this->mot->listeDeMots(trim($_POST['recherche']));
+				
+		}else{
+			$result=false;
+		}
+
+		if ($result){
+			$arr[]=array();
+			$i=0;
+			while($row=$result->fetch())
+			{
+				$arr[$i]['id']=$row['mot_id'];
+				$arr[$i]['mot']=$row['mot_libelle'];
+				$i++;
+			}
+
+			$vue = new Vue("Resultat");
+			if($i==0) $vue->generer(array());
+			else
+			$vue->generer(array("result"=>$arr));
+
+		}else
+		{
+			$vue = new Vue("Resultat");
+			$vue->generer(array());
+		}
+
+
+
+	}
+
+
+	public function lien()
+	{
+		$mot=$_POST['mot1'];
+		$id=$_POST['mot'];
+		$this->liens($mot,$id);
+	}
+	
+	public function liens($mot,$id)
+	{
+		$result=$this->mot->listeParties($id);
+		
+		if($result)
+		{
+			$arr[]=array();
+			$i=0;
+			while($row=$result->fetch())
+			{
+				$arr[$i]['idp']=$row['partie_id'];
+				$arr[$i]['idu']=$row['user_id'];
+				$arr[$i]['login']=$row['user_login'];
+				$i++;
+			}
+			
+			$vue = new Vue("liens");
+			if($i==0)
+				$vue->generer(array("mot"=>$mot,"id"=>$id));
+			else 
+				$vue->generer(array("result"=>$arr,"mot"=>$mot,"id"=>$id));
+	
+	
+		}else
+		{
+			$vue = new Vue("liens");
+			$vue->generer(array());
+		}
+	}
+	
+	
+	public function ajouterLiens()
+	{
+		$id=$_POST['idm'];
+		$mot=$_POST['mot'];
+	
+		if(!$idpartie=$this->mot->existPartie($id))
+		{
+			$idpartie=$this->mot->ajouterPartie($id);
+		}
+
+		$text=strtolower($_POST['txt']);
+		$text=str_replace(",","\n",$text);
+		$arr=explode("\n",$text);
+	
+		for($i=0;$i<count($arr);$i++){
+			$this->mot->ajouterLien($idpartie,$arr[$i]);
+		}
+		$this->mot->liens($mot,$id);
+	
+	}
+
+	public function listeMots()
+	{
+		//$result=$this->mot->listeDeMots();
+		$arr=array("salah"=>"ok");
+		echo json_encode($arr); 
+		
+	}
+
+}
+
