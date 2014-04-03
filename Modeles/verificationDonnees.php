@@ -130,8 +130,8 @@ if(isset($_POST['action']) && !empty($_POST['action'])){
 					
 			}else if ($methode=='btnSuivant' && isset($idPartie))
 			{
-				if ( $partie->getPartiesByIdPartie($idPartie))
-				{
+				//if ( $partie->getPartiesByIdPartie($idPartie))
+				//{
 					 $partie->getMot()->motAleaPartie();
 					$result= array("typeRetour"=> $succes,
 									"contenu" =>"",
@@ -140,8 +140,8 @@ if(isset($_POST['action']) && !empty($_POST['action'])){
 									);
 					
 					
-				}else
-					$result = array('typeRetour' => $succes,'contenu' => "Impossible de récupérer la partie");
+				//}else
+				//	$result = array('typeRetour' => $succes,'contenu' => "Impossible de récupérer la partie");
 
 							
 				echo json_encode($result);	
